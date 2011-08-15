@@ -19,7 +19,10 @@ class RecentComments extends Widget{
 	}
 
 	function Comments(){
-		$filter = array();
+		$filter = array(
+			"\"NeedsModeration\" = 0",
+			"\"IsSpam\" = 0"
+		);
 		$join = "";
 		if($this->PageClass){
 			$filter[]  = "\"SiteTree_Live\".\"ClassName\" = '".$this->PageClass."'";
